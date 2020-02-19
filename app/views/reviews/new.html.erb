@@ -1,15 +1,11 @@
-<h1>Create a review</h1>
-
-<ul>
-  <%= form_for(@review) do |f| %>
-    <%= f.label :content %> <br>
-    <%= f.text_area :content %> <br>
+<h1>Create a review for --<%= @restaurant.name %>--</h1>
 
 
-    <%= f.label :rating %> <br>
-    <%= f.text_area :rating %> <br>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %> <br>
+  <%= f.input :rating %> <br>
+  <%= f.submit "add a review" %> <br>
+<% end %>
 
-    <%= f.submit 'Add a review' %>
-  <% end %>
-</ul>
 
+<%= link_to 'back', restaurant_path(@restaurant) %>
